@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <form method="POST" class="appointment-form" id="appointment-form" action="regis">
+                {% csrf_token %}
+                <h2 style="color:black;">REGISTRATION FORM</h2>
+                <div class="form-group-1">
+                    <input type="text" name="username" id="title" placeholder="Enter your username" required />
+                    <input type="text" name="first_name" id="name" placeholder="Enter Your First Name" required />
+                    <input type="text" name="last_name" id="lname" placeholder="Enter Your Last Name" required />
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" required />
+                    <input type="password" name="password" id="password" placeholder="Create a password" required />
+                    <input type="password" name="cpass" id="cpass" placeholder="Confirm Your  password" required />
+
+                </div>
+
+                <div class="form-submit">
+                    <input type="submit" name="submit" id="submit" class="submit" value="REGISTER" />
+                </div>
+            </form>
+            {% for m in messages %}
+            <h3 style="color:red;">{{m}}</h3>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
